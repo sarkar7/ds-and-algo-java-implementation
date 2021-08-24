@@ -94,4 +94,42 @@ public class BinarySearchTree {
         return getMinRec(root.getLeft());
     }
 
+    public boolean isAvailable(int data) {
+        if (data == 0) throw new RuntimeException("Value can't be zero!");
+        return findKey(root, data);
+    }
+
+    private boolean findKey(T_Node root, int data) {
+        if (root == null) return false;
+        if (root.getValue() == data) return true;
+
+        if (data < root.getValue()) {
+            return findKey(root.getLeft(), data);
+        } else if (data > root.getValue()) {
+            return findKey(root.getRight(), data);
+        }
+        return false;
+    }
+
+    public void delete(int data) {
+        deleteKey(this.root, data);
+    }
+
+    private boolean deleteKey(T_Node root, int data) {
+
+        if (root == null) return false;
+        if (root.getValue() == data) return true;
+
+        if (data < root.getValue()) {
+            if(deleteKey(root.getLeft(), data)){
+                root.setLeft(null);
+            }
+        } else if (data > root.getValue()) {
+            if(deleteKey(root.getRight(), data)){
+                root.setRight(null);
+            }
+        }
+
+        return false;
+    }
 }
