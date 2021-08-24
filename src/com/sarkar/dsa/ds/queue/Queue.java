@@ -15,7 +15,7 @@ public class Queue {
     }
 
     public boolean isEmpty() {
-        return front == rear;
+        return length == arr.length;
     }
 
     public boolean isFull() {

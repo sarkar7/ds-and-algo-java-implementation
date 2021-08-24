@@ -4,6 +4,7 @@ public class Runner {
 
     public static void main(String[] args) {
 
+        /*
         T_Node root  = new T_Node(1);
         T_Node node2 = new T_Node(2);
         T_Node node3 = new T_Node(3);
@@ -20,9 +21,31 @@ public class Runner {
         node3.setRight(node7);
 
         //Tree.preOrderTraversal(root);
+        //System.out.println();
+        //System.out.println(Tree.getSize(root));
+        //System.out.println(Tree.getHeight(root));
 
-        System.out.println(Tree.getSize(root));
-        System.out.println(Tree.getHeight(root));
+        Tree.levelOrderTraversal(root);
+
+        */
+
+        BinarySearchTree bst = new BinarySearchTree(50);
+        bst.insert(30);
+        bst.insert(20);
+        bst.insert(40);
+        bst.insert(70);
+        bst.insert(60);
+        bst.insert(80);
+
+        bst.inOrder();
+        System.out.println();
+        bst.preOrder();
+        System.out.println();
+        bst.postOrder();
+        System.out.println();
+        System.out.println("Minimum is - " + bst.getMin());
+        System.out.println("Maximum is - " + bst.getMax());
+
 
     }
 }

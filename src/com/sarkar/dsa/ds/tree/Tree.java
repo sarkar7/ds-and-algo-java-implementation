@@ -1,5 +1,8 @@
 package com.sarkar.dsa.ds.tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Tree {
 
     private T_Node root = null;
@@ -42,7 +45,19 @@ public class Tree {
     }
 
     public static void levelOrderTraversal(T_Node root) {
-
+        if (root == null) return;
+        Queue<T_Node> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()) {
+            T_Node node = queue.poll();
+            System.out.print(node.getValue() + " ");
+            if (node.getLeft() != null) {
+                queue.add(node.getLeft());
+            }
+            if (node.getRight() != null) {
+                queue.add(node.getRight());
+            }
+        }
     }
 
 }
