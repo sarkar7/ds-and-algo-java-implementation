@@ -15,7 +15,7 @@ public class Tree {
         preOrderTraversal(root.getRight());
     }
 
-    // Left - Root - Right
+    // Left - Root - Right // Sorted
     public static void inOrderTraversal(T_Node root) {
         if (root == null) return;
         inOrderTraversal(root.getLeft());

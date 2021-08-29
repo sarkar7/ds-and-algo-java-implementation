@@ -1,5 +1,7 @@
 package com.sarkar.dsa.algo.sorting;
 
+import java.util.Arrays;
+
 public class MergeSort {
 
     static void mergeSort(int[] arr, int l, int h) {
@@ -54,17 +56,10 @@ public class MergeSort {
     }
 
 
-
-
-
     public static void main(String[] args) {
-        int[] arr = {6, 5, 4, 3, 2, 1};
-
+        int[] arr = {1,1,2,0,2,0,1,0,0,1};
         mergeSort(arr, 0, arr.length - 1);
-
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
+        Arrays.stream(arr).forEach(System.out::print);
 
     }
 }

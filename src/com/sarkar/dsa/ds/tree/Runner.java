@@ -45,9 +45,10 @@ public class Runner {
         System.out.println("Minimum is - " + bst.getMin());
         System.out.println("Maximum is - " + bst.getMax());
         System.out.println(bst.isAvailable(80));
+        /*
         bst.delete(80);
         System.out.println(bst.isAvailable(80));
         System.out.println("Maximum is - " + bst.getMax());
-
+        */
     }
 }
