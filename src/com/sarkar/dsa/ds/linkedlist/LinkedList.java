@@ -8,9 +8,7 @@ public class LinkedList implements List{
     // Insert nodes in a link list
    @Override
     public void add(int data) {
-
         LL_Node newNode = new LL_Node(data);
-
         if (head == null) {
             head = newNode;
             tail = newNode;
@@ -37,12 +35,10 @@ public class LinkedList implements List{
         LL_Node newNode = new LL_Node(value);
         LL_Node current = head;
         int i = 0;
-
         while (current != null && i < index) {
             current = current.getNext();
             i++;
         }
-
         newNode.setNext(current.getNext());
         current.setNext(newNode);
     }
@@ -50,17 +46,14 @@ public class LinkedList implements List{
     // Delete node from any point of a List
     @Override
     public void deleteAt(int index) {
-
     }
 
     // Delete head
     public void deleteHead() {
-
     }
 
     // Delete Tail
     public void deleteTail() {
-
     }
 
     // Check if given data is available in the List or not
@@ -97,21 +90,16 @@ public class LinkedList implements List{
     @Override
     public void display() {
         LL_Node current = head;
-
         if (current == null) {
             System.out.println("List is empty");
             return;
         }
-
         System.out.println("Nodes of singly linked list: ");
-
         while (current != null) {
             System.out.print(current.getValue() + " ");
             current = current.getNext();
         }
-
         System.out.println();
     }
-
 
 }
