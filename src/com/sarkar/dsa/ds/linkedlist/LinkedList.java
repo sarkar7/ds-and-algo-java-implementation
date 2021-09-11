@@ -8,16 +8,13 @@ public class LinkedList implements List{
     // Insert nodes in a link list
    @Override
     public void add(int data) {
-
         LL_Node newNode = new LL_Node(data);
-
         if (head == null) {
             head = newNode;
-            tail = newNode;
         } else {
             tail.setNext(newNode);
-            tail = newNode;
         }
+        tail = newNode;
     }
 
     // Insert a node at the beginning of a List
