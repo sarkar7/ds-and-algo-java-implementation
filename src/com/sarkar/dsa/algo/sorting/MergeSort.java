@@ -4,62 +4,52 @@ import java.util.Arrays;
 
 public class MergeSort {
 
-    static void mergeSort(int[] arr, int l, int h) {
+    private static int[] mergeSort(int[] arr) {
+        if (arr.length == 1) return arr;
+        int mid = arr.length / 2;
+        int[] leftArr = mergeSort(subArray(arr, 0, mid));
+        int[] rightArr = mergeSort(subArray(arr, mid, arr.length));
 
-        if(l < h) {
-            int mid = (l + h) / 2;
-            mergeSort(arr, l, mid);
-            mergeSort(arr, mid+1, h);
-            merge(arr, l, mid, h);
-        }
-
+        return merge(leftArr, rightArr);
     }
 
-    static void merge(int[] arr, int l, int mid, int h) {
-        // Find sizes of two sub-arrays to be merged
-        int n1 = mid - l + 1;
-        int n2 = h - mid;
+    private static int[] subArray(int[] arr, int start, int end) {
+        int[] temp = new int[end - start];
+        int c = 0;
+        while (start < end) {
+            temp[c++] = arr[start++];
+        }
+        return temp;
+    }
 
-        /* Create temp arrays */
-        int L[] = new int[n1];
-        int R[] = new int[n2];
+    private static int[] merge(int[] arr1, int[] arr2) {
 
-        /*Copy data to temp arrays*/
-        for (int i = 0; i < n1; ++i)
-            L[i] = arr[l + i];
-        for (int j = 0; j < n2; ++j)
-            R[j] = arr[mid + 1 + j];
-
-        // Initial indexes of first and second sub-arrays
-        int i = 0, j = 0;
-
-        // Initial index of merged sub-arry array
-        int k = l;
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                arr[k++] = L[i++];
-            }
-            else {
-                arr[k++] = R[j++];
+        int[] merged = new int[arr1.length + arr2.length];
+        int i, j, c = 0;
+        for (i = 0, j = 0; i < arr1.length && j < arr2.length;) {
+            if (arr1[i] < arr2[j]) {
+                merged[c++] = arr1[i++];
+            } else if (arr2[j] < arr1[i]) {
+                merged[c++] = arr2[j++];
+            } else {
+                merged[c++] = arr1[i++];
             }
         }
 
-        /* Copy remaining elements of L[] if any */
-        while (i < n1) {
-            arr[k++] = L[i++];
+        while (i < arr1.length) {
+            merged[c++] = arr1[i++];
         }
 
-        /* Copy remaining elements of R[] if any */
-        while (j < n2) {
-            arr[k++] = R[j++];
+        while (j < arr2.length) {
+            merged[c++] = arr2[j++];
         }
+
+        return merged;
     }
 
 
     public static void main(String[] args) {
-        int[] arr = {1,1,2,0,2,0,1,0,0,1};
-        mergeSort(arr, 0, arr.length - 1);
-        Arrays.stream(arr).forEach(System.out::print);
-
+        int[] arr = {10,9,8,7,6,5,4,3,2,1};
+        Arrays.stream(mergeSort(arr)).forEach(System.out::print);
     }
 }

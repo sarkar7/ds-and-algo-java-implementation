@@ -17,7 +17,7 @@ public class BinarySearch {
             } else if (list.get(mid) < target) {
                 left = mid + 1;
                 doBinarySearch(list, left, right, target);
-            } else if (list.get(mid).intValue() == target) {
+            } else if (list.get(mid) == target) {
                 System.out.println("Target Found");
             }
         } else {

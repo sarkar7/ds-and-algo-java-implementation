@@ -2,7 +2,8 @@ package com.sarkar.dsa.algo.string;
 
 /**
  *
- * Time Complexity - Big O(n - m + 1)m
+ * Time Complexity - Big O((n - m + 1) * m)      when m < n
+ *                 - Big O(n^2)                  when m = n/2
  *
  */
 
