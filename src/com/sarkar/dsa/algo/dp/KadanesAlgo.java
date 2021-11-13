@@ -3,6 +3,11 @@ package com.sarkar.dsa.algo.dp;
 import java.util.Arrays;
 
 public class KadanesAlgo {
+	
+	public static void main(String[] args) {
+		int[] arr = {-3, 10, -2, -7, 9, -2, -5};
+		System.out.println(Arrays.toString(findRangeOfMaxSumContiguousSubArray(arr)));
+	}
 
 	public static int findMaxSumContiguousSubArray(int[] arr) {
 
