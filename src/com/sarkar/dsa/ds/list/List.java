@@ -1,4 +1,4 @@
-package com.sarkar.dsa.ds.linkedlist;
+package com.sarkar.dsa.ds.list;
 
 public interface List {
 

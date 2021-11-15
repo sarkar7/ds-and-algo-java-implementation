@@ -1,5 +1,7 @@
 package com.sarkar.dsa.ds.linkedlist;
 
+import com.sarkar.dsa.ds.list.List;
+
 public class LinkedList implements List{
 
     private LL_Node head = null;
