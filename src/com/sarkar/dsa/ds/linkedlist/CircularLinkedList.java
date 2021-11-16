@@ -2,12 +2,12 @@ package com.sarkar.dsa.ds.linkedlist;
 
 import com.sarkar.dsa.ds.list.List;
 
-public class CircularLinkedList implements List {
+public class CircularLinkedList /* implements List */ {
 
     private LL_Node head = null;
     private LL_Node tail = null;
 
-    @Override
+    //@Override
     public void add(int data) {
         LL_Node newNode = new LL_Node(data);
         if (head == null) {
@@ -26,27 +26,27 @@ public class CircularLinkedList implements List {
         }
     }
 
-    @Override
+    //@Override
     public void insertAt(int index, int value) {
 
     }
 
-    @Override
+    //@Override
     public void deleteAt(int index) {
 
     }
 
-    @Override
+    //@Override
     public boolean isAvailable(int e) {
         return false;
     }
 
-    @Override
+    //@Override
     public int size() {
         return 0;
     }
 
-    @Override
+    //@Override
     public void display() {
         LL_Node temp = head;
         if (head != null)

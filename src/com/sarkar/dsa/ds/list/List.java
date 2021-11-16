@@ -1,14 +1,14 @@
 package com.sarkar.dsa.ds.list;
 
-public interface List {
+public interface List<T> {
 
-    public void add(int data);
+    public boolean add(T data);
 
-    public void insertAt(int index, int value);
+    public void insertAt(long index, T value);
 
-    public void deleteAt(int index);
+    public void deleteAt(long index);
 
-    public boolean isAvailable(int e);
+    public int isAvailable(T date);
 
     public int size();
 

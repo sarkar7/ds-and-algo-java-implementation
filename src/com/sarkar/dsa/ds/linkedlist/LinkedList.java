@@ -2,13 +2,13 @@ package com.sarkar.dsa.ds.linkedlist;
 
 import com.sarkar.dsa.ds.list.List;
 
-public class LinkedList implements List{
+public class LinkedList {
 
     private LL_Node head = null;
     private LL_Node tail = null;
 
     // Insert nodes in a link list
-   @Override
+   
     public void add(int data) {
         LL_Node newNode = new LL_Node(data);
         if (head == null) {
@@ -31,7 +31,7 @@ public class LinkedList implements List{
     }
 
     // Insert a node at any point of a List
-    @Override
+    
     public void insertAt(int index, int value) {
         LL_Node newNode = new LL_Node(value);
         LL_Node current = head;
@@ -45,7 +45,7 @@ public class LinkedList implements List{
     }
 
     // Delete node from any point of a List
-    @Override
+    
     public void deleteAt(int index) {
     }
 
@@ -58,7 +58,7 @@ public class LinkedList implements List{
     }
 
     // Check if given data is available in the List or not
-    @Override
+    
     public boolean isAvailable(int e) {
         LL_Node currentNode = head;
         boolean flag = false;
@@ -74,7 +74,7 @@ public class LinkedList implements List{
     }
 
     // Find size of the list
-    @Override
+    
     public int size() {
         LL_Node currentNode = head;
         int counter = 0;
@@ -88,7 +88,7 @@ public class LinkedList implements List{
     }
 
     // Display the link list
-    @Override
+    
     public void display() {
         LL_Node current = head;
         if (current == null) {
