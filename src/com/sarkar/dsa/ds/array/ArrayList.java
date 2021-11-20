@@ -9,6 +9,7 @@ public class ArrayList<T> implements List<T> {
 
 	private Object[] dataList;
 	private static final int DEFAULT_SIZE = 10;
+	private static final int THRESHOLD_LIMIT = 75;
 	private int size;
 
 	public ArrayList() {
@@ -28,10 +29,48 @@ public class ArrayList<T> implements List<T> {
 	}
 
 	private boolean addDataHelper(T data, Object[] dataList, int i) {
-		dataList[i] = data;
-		this.size = i + 1;
+		if(!isThresholdLimitReached()) {
+			dataList[i] = data;
+			this.size = i + 1;
+			return true;
+		}
+		return createNewArrayWithDoubleSize(data, i);
+	}
+	
+	private boolean isThresholdLimitReached() {
+		return this.size * 100 / (dataList.length - 1) >= THRESHOLD_LIMIT;
+	}
+
+	//Dynamically resizing the ArrayList
+	private boolean createNewArrayWithDoubleSize(T data, int size) {
+		Object[] temp = new Object[this.dataList.length*2];
+		final int tempSize = size;
+		for (int i = 0; i < tempSize; i++) {
+			temp[i] = this.dataList[i];
+			size++;
+		}
+		temp[size] = data;
+		this.dataList = temp;
 		return true;
 	}
+	
+	public Object get(int i) {
+		if (i >= 0)
+			return this.dataList[i];
+		return null;
+	}
+	
+	/**
+	 * Last element from the list will not be hard deleted from the array.
+	 * We are simply decrementing the size pointer by one.
+	 * Next add() method call will replace the last element.
+	 */
+	
+	public boolean remove() {
+		this.size--;
+		return true;
+	}
+	
 
 	@Override
 	public void display() {
