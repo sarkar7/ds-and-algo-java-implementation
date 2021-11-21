@@ -1,56 +1,59 @@
 package com.sarkar.dsa.ds.stack;
 
-public class StackByLinkedList {
-    private StackNode root;
+public class StackByLinkedList<T> {
+	private StackNode<T> root;
+	private int size = 0;
 
-    public boolean isEmpty() {
-        if (root == null) {
-            return true;
-        } else
-            return false;
-    }
+	public boolean isEmpty() {
+		return root == null;
+	}
 
-    public void push(int data) {
-        StackNode newNode = new StackNode(data);
+	public void push(T data) {
+		StackNode<T> newNode = new StackNode<>(data);
+		if (root == null) {
+			root = newNode;
+		} else {
+			StackNode<T> temp = root;
+			root = newNode;
+			newNode.next = temp;
+		}
+		size++;
+	}
 
-        if (root == null) {
-            root = newNode;
-        } else {
-            StackNode temp = root;
-            root = newNode;
-            newNode.next = temp;
-        }
-        System.out.println(data + " pushed to stack");
-    }
+	
+	public T pop() {
+		T popped = null;
+		if (root == null) {
+			System.out.println("Stack is Empty");
+		} else {
+			popped = root.data;
+			root = root.next;
+			this.size--;
+		}
+		return popped;
+	}
 
-    public int pop() {
-        int popped = Integer.MIN_VALUE;
-        if (root == null) {
-            System.out.println("Stack is Empty");
-        } else {
-            popped = root.data;
-            root = root.next;
-        }
-        return popped;
-    }
+	public T peek() {
+		if (root == null) {
+			System.out.println("Stack is empty");
+			return null;
+		} else {
+			return (T) root.data;
+		}
 
-    public int peek() {
-        if (root == null) {
-            System.out.println("Stack is empty");
-            return Integer.MIN_VALUE;
-        } else {
-            return root.data;
-        }
+	}
 
+	public int size() {
+		return this.size;
+	}
+	
+	private static class StackNode<T> {
+		private T data;
+		private StackNode<T> next;
 
-    }
-
-    private static class StackNode {
-        private int data;
-        private StackNode next;
-
-        StackNode(int data) {
-            this.data = data;
-        }
-    }
+		StackNode(T data) {
+			this.data = data;
+			this.next = null;
+		}
+	}
 }
