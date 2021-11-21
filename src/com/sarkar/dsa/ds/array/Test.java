@@ -1,5 +1,7 @@
 package com.sarkar.dsa.ds.array;
 
+import java.util.LinkedList;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -10,7 +12,6 @@ public class Test {
 			list.add(i);
 			list.display();
 		}
-		
 		
 		/*
 		ArrayList<Integer> list = new ArrayList<Integer>();

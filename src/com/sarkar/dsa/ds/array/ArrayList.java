@@ -54,6 +54,7 @@ public class ArrayList<T> implements List<T> {
 		return true;
 	}
 	
+	@Override
 	public Object get(int i) {
 		if (i >= 0)
 			return this.dataList[i];
@@ -75,16 +76,6 @@ public class ArrayList<T> implements List<T> {
 	@Override
 	public void display() {
 		System.out.println(Arrays.toString(dataList));
-	}
-
-	@Override
-	public void insertAt(long index, T value) {
-
-	}
-
-	@Override
-	public void deleteAt(long index) {
-
 	}
 
 	/**

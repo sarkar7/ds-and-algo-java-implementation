@@ -1,19 +1,19 @@
 package com.sarkar.dsa.ds.linkedlist;
 
 public class LL_Node {
-    private int value;
+    private Object value;
     private LL_Node next;
 
-    public LL_Node(int value) {
+    public LL_Node(Object value) {
         this.value = value;
         this.next = null;
     }
 
-    public int getValue() {
+    public Object getValue() {
         return value;
     }
 
-    public void setValue(int value) {
+    public void setValue(Object value) {
         this.value = value;
     }
 

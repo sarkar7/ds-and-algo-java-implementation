@@ -2,25 +2,25 @@ package com.sarkar.dsa.ds.linkedlist;
 
 import com.sarkar.dsa.ds.list.List;
 
-public class LinkedList {
+public class LinkedList<T> implements List<T> {
 
     private LL_Node head = null;
     private LL_Node tail = null;
 
     // Insert nodes in a link list
-   
-    public void add(int data) {
+    public boolean add(T data) {
         LL_Node newNode = new LL_Node(data);
         if (head == null) {
             head = newNode;
         } else {
             tail.setNext(newNode);
         }
-        tail = newNode;
+        tail = newNode;     
+        return true;
     }
 
     // Insert a node at the beginning of a List
-    public void insertAtBeginning(int value) {
+    public void insertAtBeginning(T value) {
         LL_Node newNode = new LL_Node(value);
         if (head != null) {
             newNode.setNext(head);
@@ -31,8 +31,7 @@ public class LinkedList {
     }
 
     // Insert a node at any point of a List
-    
-    public void insertAt(int index, int value) {
+    public void insertAt(int index, T value) {
         LL_Node newNode = new LL_Node(value);
         LL_Node current = head;
         int i = 0;
@@ -45,7 +44,6 @@ public class LinkedList {
     }
 
     // Delete node from any point of a List
-    
     public void deleteAt(int index) {
     }
 
@@ -57,24 +55,22 @@ public class LinkedList {
     public void deleteTail() {
     }
 
-    // Check if given data is available in the List or not
-    
-    public boolean isAvailable(int e) {
+    // Check if given data is available in the List or not and return the index value
+    public int isAvailable(T e) {
         LL_Node currentNode = head;
-        boolean flag = false;
+        int index = -1;
         if (currentNode != null) {
-            while (currentNode != null && flag == false) {
-                flag = currentNode.getValue() == e ? true : false;
+            while (currentNode != null) {
+                index = currentNode.getValue().equals(e) ? index + 1 : index;
                 currentNode = currentNode.getNext();
             }
         } else {
             System.out.println("LinkedList is empty");
         }
-        return flag;
+        return index;
     }
 
     // Find size of the list
-    
     public int size() {
         LL_Node currentNode = head;
         int counter = 0;
@@ -88,7 +84,6 @@ public class LinkedList {
     }
 
     // Display the link list
-    
     public void display() {
         LL_Node current = head;
         if (current == null) {
@@ -102,5 +97,11 @@ public class LinkedList {
         }
         System.out.println();
     }
+
+	@Override
+	public Object get(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
