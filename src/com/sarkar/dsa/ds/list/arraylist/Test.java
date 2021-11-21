@@ -1,4 +1,4 @@
-package com.sarkar.dsa.ds.array;
+package com.sarkar.dsa.ds.list.arraylist;
 
 import java.util.LinkedList;
 

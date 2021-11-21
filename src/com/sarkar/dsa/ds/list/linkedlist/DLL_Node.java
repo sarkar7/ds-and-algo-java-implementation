@@ -1,6 +1,7 @@
-package com.sarkar.dsa.ds.linkedlist;
+package com.sarkar.dsa.ds.list.linkedlist;
 
-public class DLL_Node {
+// Making this class default to make it this package private only
+class DLL_Node {
 
     private Integer data;
     private DLL_Node prev;

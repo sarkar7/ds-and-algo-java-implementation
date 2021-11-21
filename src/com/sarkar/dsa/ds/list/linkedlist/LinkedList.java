@@ -1,4 +1,4 @@
-package com.sarkar.dsa.ds.linkedlist;
+package com.sarkar.dsa.ds.list.linkedlist;
 
 import com.sarkar.dsa.ds.list.List;
 

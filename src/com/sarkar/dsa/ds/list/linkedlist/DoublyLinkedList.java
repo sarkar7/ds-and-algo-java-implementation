@@ -1,4 +1,4 @@
-package com.sarkar.dsa.ds.linkedlist;
+package com.sarkar.dsa.ds.list.linkedlist;
 
 public class DoublyLinkedList {
 
