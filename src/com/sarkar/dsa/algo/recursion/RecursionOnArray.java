@@ -5,9 +5,9 @@ public class RecursionOnArray {
 	public static void main(String[] args) {
 
 		int[] arr = { 2, 6, 8, 5, 1, 9, 4 };
-		// print(arr, 0);
-		// System.out.println();
-		// printInReverse(arr, 0);
+		print(arr, 0);
+		System.out.println();
+		printInReverse(arr, 0);
 		manipulateElements(arr, 0);
 		System.out.println();
 		print(arr, 0);
