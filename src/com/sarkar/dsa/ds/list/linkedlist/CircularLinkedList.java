@@ -2,21 +2,24 @@ package com.sarkar.dsa.ds.list.linkedlist;
 
 import com.sarkar.dsa.ds.list.List;
 
-public class CircularLinkedList /* implements List */ {
+public class CircularLinkedList<T> implements List<T> {
 
-    private LL_Node head = null;
-    private LL_Node tail = null;
+    private LL_Node<T> head = null;
+    private LL_Node<T> tail = null;
 
-    //@Override
-    public void add(int data) {
-        LL_Node newNode = new LL_Node(data);
+    @SuppressWarnings("unchecked")
+	@Override
+	public boolean add(Object data) {
+		LL_Node<T> newNode = new LL_Node(data);
         if (head == null) {
             head = newNode;
         } else {
             tail.setNext(newNode);
         }
         tail = newNode;
-    }
+		return true;
+	}
+    
 
     public void circulate() {
         if (this.tail != null) {
@@ -36,10 +39,10 @@ public class CircularLinkedList /* implements List */ {
 
     }
 
-    //@Override
-    public boolean isAvailable(int e) {
-        return false;
-    }
+    @Override
+	public int isAvailable(Object date) {
+		return 0;
+	}
 
     //@Override
     public int size() {
@@ -58,4 +61,15 @@ public class CircularLinkedList /* implements List */ {
             while (temp != tail);
         }
     }
+
+
+	@Override
+	public Object get(int i) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
 }

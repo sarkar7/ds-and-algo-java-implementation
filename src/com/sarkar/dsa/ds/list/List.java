@@ -4,12 +4,9 @@ public interface List<T> {
 
     public boolean add(T data);
 
-    //public void insertAt(long index, T value);
-
-    //public void deleteAt(long index);
-
     public Object get(int i);
     
+    //returns the index of the data if available
     public int isAvailable(T date);
 
     public int size();

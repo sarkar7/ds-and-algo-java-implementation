@@ -1,11 +1,11 @@
 package com.sarkar.dsa.ds.list.linkedlist;
 
 //Making this class default to make it this package private only
-class LL_Node {
-    private Object value;
+class LL_Node<T> {
+    private T value;
     private LL_Node next;
 
-    public LL_Node(Object value) {
+    public LL_Node(T value) {
         this.value = value;
         this.next = null;
     }
@@ -14,7 +14,7 @@ class LL_Node {
         return value;
     }
 
-    public void setValue(Object value) {
+    public void setValue(T value) {
         this.value = value;
     }
 

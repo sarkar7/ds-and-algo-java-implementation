@@ -4,12 +4,12 @@ import com.sarkar.dsa.ds.list.List;
 
 public class LinkedList<T> implements List<T> {
 
-    private LL_Node head = null;
-    private LL_Node tail = null;
+    private LL_Node<T> head = null;
+    private LL_Node<T> tail = null;
 
     // Insert nodes in a link list
     public boolean add(T data) {
-        LL_Node newNode = new LL_Node(data);
+        LL_Node<T> newNode = new LL_Node(data);
         if (head == null) {
             head = newNode;
         } else {
@@ -21,7 +21,7 @@ public class LinkedList<T> implements List<T> {
 
     // Insert a node at the beginning of a List
     public void insertAtBeginning(T value) {
-        LL_Node newNode = new LL_Node(value);
+        LL_Node<T> newNode = new LL_Node(value);
         if (head != null) {
             newNode.setNext(head);
             head = newNode;
@@ -32,8 +32,8 @@ public class LinkedList<T> implements List<T> {
 
     // Insert a node at any point of a List
     public void insertAt(int index, T value) {
-        LL_Node newNode = new LL_Node(value);
-        LL_Node current = head;
+        LL_Node<T> newNode = new LL_Node(value);
+        LL_Node<T> current = head;
         int i = 0;
         while (current != null && i < index) {
             current = current.getNext();
@@ -57,7 +57,7 @@ public class LinkedList<T> implements List<T> {
 
     // Check if given data is available in the List or not and return the index value
     public int isAvailable(T e) {
-        LL_Node currentNode = head;
+        LL_Node<T> currentNode = head;
         int index = -1;
         if (currentNode != null) {
             while (currentNode != null) {
