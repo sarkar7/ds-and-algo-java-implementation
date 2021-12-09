@@ -10,9 +10,9 @@ public class KnapSack {
 		int[] v = { 60, 100, 120 };
 		int capacity = 50;
 
-		initializeGlobalTable(w.length, capacity);
+		// initializeGlobalTable(w.length, capacity);
 
-		System.out.println(findMaximumProfitUsingDP(w, v, capacity, w.length));
+		System.out.println(knapSackTopDown(w, v, capacity, w.length));
 
 	}
 
@@ -64,6 +64,23 @@ public class KnapSack {
 		// if weight[length - 1] > capacity
 		return T[length][capacity] = findMaximumProfitUsingDP(weight, value, capacity, length - 1);
 
+	}
+
+	// 0-1 KnapSack - Top Down Approach
+	private static int knapSackTopDown(int[] weight, int[] value, int capacity, int length) {
+		int[][] K = new int[length + 1][capacity + 1];
+		for (int i = 0; i <= length; i++) {
+			for (int j = 0; j <= capacity; j++) {
+				if (i == 0 || j == 0) {
+					K[i][j] = 0;
+				} else if (weight[i - 1] <= j) {
+					K[i][j] = Math.max(value[i - 1] + K[i - 1][j - weight[i - 1]], K[i - 1][j]);
+				} else {
+					K[i][j] = K[i - 1][j];
+				}
+			}
+		}
+		return K[length][capacity];
 	}
 
 }
