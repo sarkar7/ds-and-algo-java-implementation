@@ -10,9 +10,15 @@ public class KnapSack {
 		int[] v = { 60, 100, 120 };
 		int capacity = 50;
 
-		// initializeGlobalTable(w.length, capacity);
+		// Recursive Bruit Force
+		System.out.println(findMaximumProfit(w, v, capacity, w.length));
 
-		System.out.println(knapSackTopDown(w, v, capacity, w.length));
+		// DP - Recursive Memorization
+		initializeGlobalTable(w.length, capacity);
+		System.out.println(findMaximumProfitUsingDP(w, v, capacity, w.length));
+
+		// 0-1 KnapSack - DP - Top Down Approach
+		System.out.println(findMaximumProfitUsingDPTopDown(w, v, capacity, w.length));
 
 	}
 
@@ -25,7 +31,20 @@ public class KnapSack {
 		}
 	}
 
-	// 0-1 KnapSack
+	/**
+	 * 
+	 * 0-1 KnapSack - Recursive Bruit Force Approach
+	 * @param weight
+	 * @param value
+	 * @param capacity
+	 * @param length
+	 * @return
+	 * 
+	 * Time Complexity - O(2^N)
+	 * Space Complexity - O(1)
+	 * 
+	 */
+	
 	private static int findMaximumProfit(int[] weight, int[] value, int capacity, int length) {
 
 		if (length == 0 || capacity == 0) {
@@ -43,7 +62,20 @@ public class KnapSack {
 
 	}
 
-	// 0-1 KnapSack - Memorization
+	/**
+	 * 
+	 * 0-1 KnapSack - DP - Recursive Memorization
+	 * @param weight
+	 * @param value
+	 * @param capacity
+	 * @param length
+	 * @return
+	 * 
+	 * 
+	 * Time Complexity - O(length * capacity)
+	 * Space Complexity - O(length * capacity)
+	 * 
+	 */
 	private static int findMaximumProfitUsingDP(int[] weight, int[] value, int capacity, int length) {
 
 		if (length == 0 || capacity == 0) {
@@ -66,8 +98,21 @@ public class KnapSack {
 
 	}
 
-	// 0-1 KnapSack - Top Down Approach
-	private static int knapSackTopDown(int[] weight, int[] value, int capacity, int length) {
+	/**
+	 * 
+	 *  0-1 KnapSack - DP - Top Down Approach
+	 * @param weight
+	 * @param value
+	 * @param capacity
+	 * @param length
+	 * @return
+	 * 
+	 * 
+	 * Time Complexity - O(length * capacity)
+	 * Space Complexity - O(length * capacity)
+	 * 
+	 */
+	private static int findMaximumProfitUsingDPTopDown(int[] weight, int[] value, int capacity, int length) {
 		int[][] K = new int[length + 1][capacity + 1];
 		for (int i = 0; i <= length; i++) {
 			for (int j = 0; j <= capacity; j++) {

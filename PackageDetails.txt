@@ -1,0 +1,119 @@
+com.sarkar.dsa.bitwise
+com.sarkar.dsa.algo.recursion
+	-Problems
+	-SubSet
+	-SubSequence
+com.sarkar.dsa.algo.recursion.backtracking
+	-Maze
+	-NQueen
+	-Knight
+	-Permutation
+com.sarkar.dsa.algo
+	-searching
+		-LinearSearch
+		-BinarySearch
+		-2dBinarySearch
+	-sorting
+		-Bubble Sort
+		-Selection Sort
+		-Insertion Sort
+		-Cyclic Sort
+		-Merge Sort
+		-Quick Sort
+		-Heap Sort
+		-Radix Sort
+		-Counting Sort
+		-Bucket Sort
+	-greedy algorithms
+		-knapsack
+		-jobSequence
+		-MinimumSpanningTree
+		-HuffmanCoding
+	-string algorithms
+		-Naive
+		-RabinKarp
+		-KMP
+	-graph algorithms
+		-Dijkstra's Shortest Path
+		-Prim Algorithm / Minimum Spanning Tree
+		-Bellman-Ford Shortest Path
+		-Kruskal's Algorithm
+		-Kosaraju's Algorithm
+		-Articulation Point
+		-Bridges in Graph
+		-Tarjan's Algorithm
+com.sarkar.dsa.algo.dp
+		Pattern 1: 0/1 Knapsack
+			1.	0/1 Knapsack
+			2.	Equal Subset Sum Partition
+			3.	Subset Sum
+			4.	Minimum Subset Sum Difference
+			5.	Count of Subset Sum
+			6.	Target Sum
+		Pattern 2: Unbounded Knapsack
+			1.	Unbounded Knapsack
+			2.	Rod Cutting
+			3.	Coin Change
+			4.	Minimum Coin Change
+			5.	Maximum Ribbon Cut
+		Pattern 3: Fibonacci Numbers
+			1.	Fibonacci numbers
+			2.	Staircase
+			3.	Number factors
+			4.	Minimum jumps to reach the end
+			5.	Minimum jumps with fee
+			6.	House thief
+		Pattern 4: Palindromic Subsequence
+			1.	Longest Palindromic Subsequence
+			2.	Longest Palindromic Substring
+			3.	Count of Palindromic Substrings
+			4.	Minimum Deletions in a String to make it a Palindrome
+			5.	Palindromic Partitioning
+		Pattern 5: Longest Common Substring
+			1.	Longest Common Substring
+			2.	Longest Common Subsequence
+			3.	Minimum Deletions & Insertions to Transform a String into another
+			4.	Longest Increasing Subsequence
+			5.	Maximum Sum Increasing Subsequence
+			6.	Shortest Common Super-sequence
+			7.	Minimum Deletions to Make a Sequence Sorted
+			8.	Longest Repeating Subsequence
+			9.	Subsequence Pattern Matching
+			10.	Longest Bitonic Subsequence
+			11.	Longest Alternating Subsequence
+			12.	Edit Distance
+			13.	Strings Interleaving
+		
+	
+com.sarkar.dsa.ds
+	-ArrayList
+	-LinkedList
+		-SinglyLinkedList
+		-DoublyLinkedList
+		-CircularLinkedList
+	-Stack
+	-Queue
+		-Queue
+		-PriorityQueue
+	-Tree
+		-Tree
+		-BinarySearchTree
+		-AVLTree
+		-BTree
+	-Heap
+		-MaxHeap
+		-MinHeap
+	-Trie
+	-Graph
+	-Set
+		-HashSet
+		-LinkedHashSet
+		-TreeSet
+	-Map
+		-HashMap
+		-LinkedHashMap
+		-TreeMap
+
+com.sarkar.dsa.math
+
+
