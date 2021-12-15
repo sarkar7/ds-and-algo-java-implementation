@@ -1,4 +1,4 @@
-package com.sarkar.dsa.algo.dp;
+package com.sarkar.dsa.algo.dp.lcs;
 
 public class PrintLCS {
 

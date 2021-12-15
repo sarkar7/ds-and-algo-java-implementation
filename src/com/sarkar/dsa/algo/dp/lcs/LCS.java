@@ -1,17 +1,17 @@
-package com.sarkar.dsa.algo.dp;
+package com.sarkar.dsa.algo.dp.lcs;
 
 public class LCS {
 
-	static String X = "AGGTAB";
+	static String X = "AGGTXAB";
 	static String Y = "GXTXAYB";
 	static int[][] T = new int[X.length() + 1][Y.length() + 1];
 
 	public static void main(String[] args) {
 
-		// initializeMatrix(T, X.length() + 1, Y.length() + 1);
+		//initializeMatrix(T, X.length() + 1, Y.length() + 1);
 		//System.out.println(findLcsByMemorization(X, Y, X.length(), Y.length()));
-		System.out.println(findLcsByBottomUp(X, Y));
-
+		//System.out.println(findLcsByBottomUp(X, Y));
+		System.out.println(findLCS(X,Y,X.length(), Y.length()));
 	}
 
 	private static void initializeMatrix(int[][] t, int m, int n) {
