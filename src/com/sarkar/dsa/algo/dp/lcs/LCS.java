@@ -4,19 +4,20 @@ public class LCS {
 
 	static String X = "AGGTXAB";
 	static String Y = "GXTXAYB";
-	static int[][] T = new int[X.length() + 1][Y.length() + 1];
+	static int[][] T;
 
 	public static void main(String[] args) {
 
-		//initializeMatrix(T, X.length() + 1, Y.length() + 1);
-		//System.out.println(findLcsByMemorization(X, Y, X.length(), Y.length()));
-		//System.out.println(findLcsByBottomUp(X, Y));
+		initializeMatrix(T, X.length(), Y.length());
+		System.out.println(findLcsByMemorization(X, Y, X.length(), Y.length()));
+		System.out.println(findLcsByBottomUp(X, Y));
 		System.out.println(findLCS(X,Y,X.length(), Y.length()));
 	}
 
 	private static void initializeMatrix(int[][] t, int m, int n) {
-		for (int i = 0; i < m; i++) {
-			for (int j = 0; j < n; j++) {
+		T = new int[m+1][n+1];
+		for (int i = 0; i <= m; i++) {
+			for (int j = 0; j <= n; j++) {
 				T[i][j] = -1;
 			}
 		}

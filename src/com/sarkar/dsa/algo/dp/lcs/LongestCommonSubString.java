@@ -7,7 +7,7 @@ public class LongestCommonSubString {
 		String X = "AGGTXAB";
 		String Y = "GXTXAYB";
 		System.out.println(findLcString(X, Y, X.length(), Y.length(), 0));
-		// System.out.println(findLcStringByBottomUp(X, Y));
+		System.out.println(findLcStringByBottomUp(X, Y));
 
 	}
 
