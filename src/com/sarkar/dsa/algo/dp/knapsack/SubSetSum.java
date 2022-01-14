@@ -1,4 +1,4 @@
-package com.sarkar.dsa.algo.dp;
+package com.sarkar.dsa.algo.dp.knapsack;
 
 public class SubSetSum {
 
