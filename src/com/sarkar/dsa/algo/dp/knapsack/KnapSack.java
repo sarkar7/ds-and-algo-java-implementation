@@ -6,19 +6,19 @@ public class KnapSack {
 
 	public static void main(String[] args) {
 
-		int[] w = { 10, 20, 30 };
-		int[] v = { 60, 100, 120 };
+		int[] weights = { 10, 20, 30 };
+		int[] profits = { 60, 100, 120 };
 		int capacity = 50;
 
 		// Recursive Brute Force
-		System.out.println(findMaximumProfit(w, v, capacity, w.length));
+		System.out.println(findMaximumProfit(weights, profits, capacity, weights.length));
 
 		// DP - Recursive Memorization - Top Down
-		initializeGlobalTable(w.length, capacity);
-		System.out.println(findMaximumProfitUsingMemorization(w, v, capacity, w.length));
+		initializeGlobalTable(weights.length, capacity);
+		System.out.println(findMaximumProfitUsingMemorization(weights, profits, capacity, weights.length));
 
 		// 0-1 KnapSack - Bottom Up Approach
-		System.out.println(findMaximumProfitUsingBottomUp(w, v, capacity, w.length));
+		System.out.println(findMaximumProfitUsingBottomUp(weights, profits, capacity, weights.length));
 
 	}
 
@@ -35,8 +35,8 @@ public class KnapSack {
 	 * 
 	 * 0-1 KnapSack - Recursive Bruit Force Approach
 	 * 
-	 * @param weight
-	 * @param value
+	 * @param weights
+	 * @param profits
 	 * @param capacity
 	 * @param length
 	 * @return
@@ -45,7 +45,7 @@ public class KnapSack {
 	 * 
 	 */
 
-	private static int findMaximumProfit(int[] weight, int[] value, int capacity, int length) {
+	private static int findMaximumProfit(int[] weights, int[] profits, int capacity, int length) {
 
 		// if length is zero then return zero
 		// or if the capacity is zero then return zero
@@ -53,14 +53,14 @@ public class KnapSack {
 			return 0;
 		}
 
-		if (weight[length - 1] <= capacity) {
+		if (weights[length - 1] <= capacity) {
 			return Math.max(
-					value[length - 1] + findMaximumProfit(weight, value, capacity - weight[length - 1], length - 1),
-					findMaximumProfit(weight, value, capacity, length - 1));
+					profits[length - 1] + findMaximumProfit(weights, profits, capacity - weights[length - 1], length - 1),
+					findMaximumProfit(weights, profits, capacity, length - 1));
 		}
 
 		// if weight[length - 1] > capacity
-		return findMaximumProfit(weight, value, capacity, length - 1);
+		return findMaximumProfit(weights, profits, capacity, length - 1);
 
 	}
 
@@ -68,8 +68,8 @@ public class KnapSack {
 	 * 
 	 * 0-1 KnapSack - DP - Recursive Memorization
 	 * 
-	 * @param weight
-	 * @param value
+	 * @param weights
+	 * @param profits
 	 * @param capacity
 	 * @param length
 	 * @return
@@ -78,7 +78,7 @@ public class KnapSack {
 	 *         capacity)
 	 * 
 	 */
-	private static int findMaximumProfitUsingMemorization(int[] weight, int[] value, int capacity, int length) {
+	private static int findMaximumProfitUsingMemorization(int[] weights, int[] profits, int capacity, int length) {
 
 		if (length == 0 || capacity == 0) {
 			return 0;
@@ -88,14 +88,14 @@ public class KnapSack {
 			return T[length][capacity];
 		}
 
-		if (weight[length - 1] <= capacity) {
-			return T[length][capacity] = Math.max(value[length - 1]
-					+ findMaximumProfitUsingMemorization(weight, value, capacity - weight[length - 1], length - 1),
-					findMaximumProfitUsingMemorization(weight, value, capacity, length - 1));
+		if (weights[length - 1] <= capacity) {
+			return T[length][capacity] = Math.max(profits[length - 1]
+					+ findMaximumProfitUsingMemorization(weights, profits, capacity - weights[length - 1], length - 1),
+					findMaximumProfitUsingMemorization(weights, profits, capacity, length - 1));
 		}
 
-		// if weight[length - 1] > capacity
-		return T[length][capacity] = findMaximumProfitUsingMemorization(weight, value, capacity, length - 1);
+		// if weights[length - 1] > capacity
+		return T[length][capacity] = findMaximumProfitUsingMemorization(weights, profits, capacity, length - 1);
 
 	}
 
@@ -103,35 +103,51 @@ public class KnapSack {
 	 * 
 	 * 0-1 KnapSack - DP - Bottom Up Approach
 	 * 
-	 * @param weight
-	 * @param value
+	 * @param weights
+	 * @param profits
 	 * @param capacity
 	 * @param length
 	 * @return
 	 * 
-	 *         Time Complexity - O(length * capacity) Space Complexity - O(length *
-	 *         capacity)
+	 *         Time Complexity - O(length * capacity) Space Complexity - O(length * capacity)
 	 * 
 	 */
-	private static int findMaximumProfitUsingBottomUp(int[] weight, int[] value, int capacity, int length) {
-		int[][] K = new int[length + 1][capacity + 1];
-		for (int i = 0; i <= length; i++) {
-			for (int j = 0; j <= capacity; j++) {
-
+	private static int findMaximumProfitUsingBottomUp(int[] weights, int[] profits, int capacity, int length) {
+		int[][] DP = new int[weights.length + 1][capacity + 1];
+		for (int w = 0; w <= weights.length; w++) {
+			for (int c = 0; c <= capacity; c++) {
 				// Initializing the K matrix by setting elements of first row and first column zero
 				// This is the alternative of base condition
-				if (i == 0 || j == 0) {
-					K[i][j] = 0;
+				if (w == 0 || c == 0) {
+					DP[w][c] = 0;
 				}
-
-				else if (weight[i - 1] <= j) {
-					K[i][j] = Math.max(value[i - 1] + K[i - 1][j - weight[i - 1]], K[i - 1][j]);
+				else if (weights[w - 1] <= c) {
+					DP[w][c] = Math.max(profits[w - 1] + DP[w - 1][c - weights[w - 1]], DP[w - 1][c]);
 				} else {
-					K[i][j] = K[i - 1][j];
+					DP[w][c] = DP[w - 1][c];
 				}
 			}
 		}
-		return K[length][capacity];
+		printSelectedElements(DP, weights, profits, capacity);
+		return DP[length][capacity];
 	}
+
+	private static void printSelectedElements(int dp[][], int[] weights, int[] profits, int capacity) {
+		System.out.print("Selected weights:");
+		int totalProfit = dp[weights.length-1][capacity];
+		for(int i=weights.length-1; i > 0; i--) {
+			if(totalProfit != dp[i-1][capacity]) {
+				System.out.print(" " + weights[i]);
+				capacity -= weights[i];
+				totalProfit -= profits[i];
+			}
+		}
+
+		if(totalProfit != 0) {
+			System.out.print(" " + weights[0]);
+		}
+		System.out.println("");
+	}
+
 
 }
