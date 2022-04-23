@@ -12,7 +12,7 @@ public class BinarySearch {
 
         if (right > left) {
             if (list.get(mid) > target) {
-                right = mid - 1;
+                right = mid;
                 doBinarySearch(list, left, right, target);
             } else if (list.get(mid) < target) {
                 left = mid + 1;
@@ -29,7 +29,7 @@ public class BinarySearch {
     public static void main(String[] args) {
 
         List<Integer> list = Arrays.asList(5, 8, 10, 12, 15, 17, 20, 22);
-        doBinarySearch(list, 0, list.size(), 25);
+        doBinarySearch(list, 0, list.size(), 8);
 
     }
 
