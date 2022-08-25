@@ -1,14 +1,14 @@
-com.sarkar.dsa.bitwise
-com.sarkar.dsa.algo.recursion
+sarkar.dsa.bitwise
+sarkar.dsa.algo.recursion
 	-Problems
 	-SubSet
 	-SubSequence
-com.sarkar.dsa.algo.recursion.backtracking
+sarkar.dsa.algo.recursion.backtracking
 	-Maze
 	-NQueen
 	-Knight
 	-Permutation
-com.sarkar.dsa.algo
+sarkar.dsa.algo
 	-searching
 		-LinearSearch
 		-BinarySearch
@@ -42,7 +42,7 @@ com.sarkar.dsa.algo
 		-Articulation Point
 		-Bridges in Graph
 		-Tarjan's Algorithm
-com.sarkar.dsa.algo.dp
+sarkar.dsa.algo.dp
 		Pattern 1: 0/1 Knapsack
 			1.	0/1 Knapsack
 			2.	Equal Subset Sum Partition
@@ -85,7 +85,7 @@ com.sarkar.dsa.algo.dp
 			13.	Strings Interleaving
 		
 	
-com.sarkar.dsa.ds
+sarkar.dsa.ds
 	-ArrayList
 	-LinkedList
 		-SinglyLinkedList
@@ -114,6 +114,6 @@ com.sarkar.dsa.ds
 		-LinkedHashMap
 		-TreeMap
 
-com.sarkar.dsa.math
+sarkar.dsa.math
 
 
